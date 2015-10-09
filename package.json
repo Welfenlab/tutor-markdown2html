@@ -1,0 +1,24 @@
+{
+  "name": "@tutor/markdown2html",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Welfenlab/tutor-markdown2html.git"
+  },
+  "keywords": [
+    "Tutor",
+    "Markdown",
+    "HTML"
+  ],
+  "author": "Maximilian Klein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Welfenlab/tutor-markdown2html/issues"
+  },
+  "homepage": "https://github.com/Welfenlab/tutor-markdown2html#readme"
+}
