@@ -1,9 +1,11 @@
 {
   "name": "@tutor/markdown2html",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The tutor markdown2html converter using more-markdown ",
   "main": "index.js",
-  "scripts": {"test":"echo 'no tests!'"},
+  "scripts": {
+    "test": "echo 'no tests!'"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Welfenlab/tutor-markdown2html.git"
