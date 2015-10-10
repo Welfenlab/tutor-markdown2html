@@ -31,19 +31,9 @@ var createPreview = function(id, config) {
       testProcessor(["test", "tests"], {
         tests: [
           testSuite.itTests({
-            registerTest: (function(name, elem) {
-              return elem.innerHTML += "<li>" + name + "</li>";
-            }),
-            testResult: (function(status, index, elem) {
-              if (status === null) {
-                return elem.children[index].innerHTML += " <span style='color:green'>Success</span>";
-              } else {
-                return elem.children[index].innerHTML += " <span style='color:red'>Failed (" + status.exception + ")</span>";
-              }
-            }),
-            allResults: (function(error, passed, failed) {
-              return console.log("passed " + passed + ", failed " + failed + " (error: " + error + ")");
-            })
+            registerTest: config.testProcessor.register,
+            testResult: config.testProcessor.testResult,
+            allResults: config.testProcessor.testsFinished
           }), testSuite.jsTests, graphTestSuite.collectGraphs, graphTestSuite.graphApi, testSuite.debugLog
         ],
         runner: {
