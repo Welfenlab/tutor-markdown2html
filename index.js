@@ -22,10 +22,10 @@ var createPreview = function(id, config) {
       codeControls("js", {
         run: jailedSandbox.run,
         debug: _.partial(jailedSandbox.debug, _, {}, {
-          timeout: 1 * 60 * 1000
+          timeout: config.debugTimeout
         })
       }, config.codeControls.template),
-      dotProcessor("dot", 
+      dotProcessor("dot",
         config.dotProcessor.baseSVGTemplate,
         config.dotProcessor.errorTemplate),
       testProcessor(["test", "tests"], {
@@ -38,10 +38,10 @@ var createPreview = function(id, config) {
         ],
         runner: {
           run: _.partial(jailedSandbox.run, _, _, {
-            timeout: 1 * 60 * 1000
+            timeout: config.runTimeout
           }),
           debug: _.partial(jailedSandbox.debug, _, _, {
-            timeout: 1 * 60 * 1000
+            timeout: config.debugTimeout
           })
         },
         templates: {
