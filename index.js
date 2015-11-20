@@ -72,7 +72,9 @@ var createPreview = function(id, config) {
   }
 
   if (config.treeProcessor !== false) {
-    processors.push(require('@more-markdown/tree-processor'));
+    processors.push(require('@more-markdown/tree-processor')("tree", 
+      config.treeProcessor.baseSVGTemplate,
+      config.treeProcessor.errorTemplate));
   }
 
   return moreMarkdown.create(id, {
