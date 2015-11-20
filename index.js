@@ -13,13 +13,18 @@ var createPreview = function(id, config) {
   }
 
   if (config.codeControls) {
-    var codeControls     = require('@more-markdown/code-controls');
-    var jailedSandbox  = require('@tutor/jailed-sandbox');
+    var codeControls   = require('@more-markdown/code-controls');
 
     processors.push(codeControls("js", {
-      run: jailedSandbox.run,
-      debug: _.partial(jailedSandbox.debug, _, {}, {
-        timeout: config.debugTimeout
+      run: function() {
+        var jailedSandbox  = require('@tutor/jailed-sandbox');
+        return jailedSandbox.run.apply(undefined, arguments);
+      },
+      debug:  function() {
+        var jailedSandbox  = require('@tutor/jailed-sandbox');
+        return _.partial(jailedSandbox.debug, _, {}, {
+          timeout: config.debugTimeout
+        });
       })
     }, config.codeControls.template));
   }
@@ -34,7 +39,7 @@ var createPreview = function(id, config) {
   }
 
   if(config.testProcessor) {
-    var testProcessor    = require('@more-markdown/test-processor');
+    var testProcessor  = require('@more-markdown/test-processor');
     var jailedSandbox  = require('@tutor/jailed-sandbox');
     var graphTestSuite = require('@tutor/graph-test-suite');
     var testSuite      = require('@tutor/test-suite');
