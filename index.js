@@ -24,7 +24,7 @@ var createPreview = function(id, config) {
         var jailedSandbox  = require('@tutor/jailed-sandbox');
         return _.partial(jailedSandbox.debug, _, {}, {
           timeout: config.debugTimeout
-        });
+        }).apply(undefined, arguments);
       }
     }, config.codeControls.template));
   }
@@ -40,7 +40,6 @@ var createPreview = function(id, config) {
 
   if(config.testProcessor) {
     var testProcessor  = require('@more-markdown/test-processor');
-    var jailedSandbox  = require('@tutor/jailed-sandbox');
     var graphTestSuite = require('@tutor/graph-test-suite');
     var testSuite      = require('@tutor/test-suite');
 
@@ -53,12 +52,18 @@ var createPreview = function(id, config) {
         }), testSuite.jsTests, graphTestSuite.collectGraphs, graphTestSuite.graphApi, testSuite.debugLog
       ],
       runner: {
-        run: _.partial(jailedSandbox.run, _, _, {
-          timeout: config.runTimeout
-        }),
-        debug: _.partial(jailedSandbox.debug, _, _, {
-          timeout: config.debugTimeout
-        })
+        run: function() {
+          var jailedSandbox  = require('@tutor/jailed-sandbox');
+          return _.partial(jailedSandbox.run, _, _, {
+            timeout: config.runTimeout
+          }).apply(undefined, arguments)
+        },
+        debug: function() {
+          var jailedSandbox  = require('@tutor/jailed-sandbox');
+          return _.partial(jailedSandbox.debug, _, _, {
+            timeout: config.debugTimeout
+          }).apply(undefined, arguments);
+        }
       },
       templates: {
         tests: config.testProcessor.template
