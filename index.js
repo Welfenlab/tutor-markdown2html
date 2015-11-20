@@ -25,7 +25,7 @@ var createPreview = function(id, config) {
         return _.partial(jailedSandbox.debug, _, {}, {
           timeout: config.debugTimeout
         });
-      })
+      }
     }, config.codeControls.template));
   }
 
