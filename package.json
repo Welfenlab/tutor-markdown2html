@@ -31,7 +31,7 @@
     "@tutor/graph-test-suite": "^0.2.1",
     "@tutor/jailed-sandbox": "^0.3.3",
     "@tutor/javascript-sandbox": "^0.2.1",
-    "@tutor/test-suite": "^0.2.3",
+    "@tutor/test-suite": "^0.2.4",
     "lodash": "^3.10.1",
     "more-markdown": "^0.1.5"
   }
