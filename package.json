@@ -29,7 +29,7 @@
     "@more-markdown/tree-processor": "0.0.1",
     "@tutor/browser-debug-js": "^0.1.1",
     "@tutor/graph-test-suite": "^0.2.1",
-    "@tutor/jailed-sandbox": "^0.3.0",
+    "@tutor/jailed-sandbox": "^0.3.1",
     "@tutor/javascript-sandbox": "^0.2.1",
     "@tutor/test-suite": "^0.2.2",
     "lodash": "^3.10.1",
