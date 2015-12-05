@@ -51,6 +51,9 @@ var createPreview = function(id, config) {
           allResults: config.testProcessor.testsFinished
         }), testSuite.jsTests, graphTestSuite.collectGraphs, graphTestSuite.graphApi, testSuite.debugLog
       ],
+      testProcessor: {
+        init: config.testProcessor.init
+      },
       runner: {
         run: function() {
           var jailedSandbox  = require('@tutor/jailed-sandbox');
