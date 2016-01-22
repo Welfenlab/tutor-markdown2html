@@ -1,6 +1,6 @@
 {
   "name": "@tutor/markdown2html",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "description": "The tutor markdown2html converter using more-markdown ",
   "main": "index.js",
   "scripts": {
